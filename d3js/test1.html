@@ -22,7 +22,7 @@
 
 			for(var i = 0; i < 30; i++) {
 				var node = {
-					label : "n " + i
+					label : "note" + i
 				};
 				nodes.push(node);
 				labelAnchors.push({
@@ -64,7 +64,7 @@
 			var node = vis.selectAll("g.node").data(force.nodes()).enter().append("svg:g").attr("class", "node");
 			node.append("svg:circle").attr("r", 5).style("fill", "#555").style("stroke", "#FFF").style("stroke-width", 3);
 			node.call(force.drag);
-
+			
 
 			var anchorLink = vis.selectAll("line.anchorLink").data(labelAnchorLinks)//.enter().append("svg:line").attr("class", "anchorLink").style("stroke", "#999");
 

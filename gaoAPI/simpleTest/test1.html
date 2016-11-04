@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>基本地图展示</title>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script src="http://webapi.amap.com/maps?v=1.3&key=0acb2b665ac3d9e319be5f595fd2891b"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+   
+</head>
+<body>
+<div id="container"></div>
+
+<script>
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+        zoom:11,
+        center: [114.397428, 39.90923]
+        
+    });
+    //add marker
+    var marker = new AMap.Marker({
+        position: [116.480983, 39.989628],
+        map:map
+    });
+    
+    //add information window
+    var infowindow = new AMap.InfoWindow({
+         content: '<h3>高德地图</h1><div>高德是中国领先的数字地图内容、导航和位置服务解决方案提供商。</div>',
+         offset: new AMap.Pixel(0, -30),
+         size:new AMap.Size(230,0)
+    });
+    //when click the marker show information window
+    var clickHandle = AMap.event.addListener(marker, 'click', function() {
+        infowindow.open(map, marker.getPosition());
+    });
+
+    //infowindow.open(map,new AMap.LngLat(116.480983, 39.989628));
+</script>
+</body>
+</html>
